@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Course</title>
+</head>
+
+<body>
+    <button onclick="sendRequest()">
+        Send ajax request
+    </button>
+    <h1 id="text"></h1>
+
+    <script>
+        function sendRequest() {
+            var object = new XMLHttpRequest();
+            object.open('POST', 'backend.php', true);
+            object.setRequestHeader('Content-Type',
+                'application/x-www-form-urlencoded');
+            object.onreadystatechange = function() {
+                document.getElementById('text').innerHTML = object.responseText;
+            }
+            object.send('username=Miguel');
+        }
+    </script>
+</body>
+
+</html>
